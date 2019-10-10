@@ -34,7 +34,7 @@
                     <td>{{ $category->c_title_seo}}</td>
                     <td>{{ $category->c_active}}</td>
                     <td>
-                        <a href="">Edit</a>
+                        <a href="{{ route('admin.get.edit.category',$category->id)}}">Edit</a>
                         <a href="">Delete</a>
 
                     </td>

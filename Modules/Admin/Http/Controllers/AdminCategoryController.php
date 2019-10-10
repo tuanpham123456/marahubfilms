@@ -37,4 +37,20 @@ class AdminCategoryController extends Controller
 
         return redirect()->back();
     }
+    public function edit($id){
+        $category = Category::find($id);
+        return view('admin::category.update',compact('category'));
+    }
+    public function update(RequestCategory $requestCategory,$id){
+        $category                       =  Category::find($id);
+        $category->c_name               =  $requestCategory->name;
+        $category->c_slug               =  str_slug($requestCategory->name);
+        $category->c_icon               =  str_slug($requestCategory->icon);
+        $category->c_title_seo          =  $requestCategory->c_title_seo ? $requestCategory->c_title_seo : $requestCategory->name;
+        $category->c_description_seo    =  $requestCategory->c_description_seo;
+        $category->save();
+
+        return redirect()->back();
+
+    }
 }
