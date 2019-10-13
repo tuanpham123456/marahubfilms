@@ -15,6 +15,7 @@
         <h2>Quản lý danh sách phim
              <a href="{{ route('admin.get.create.category')}}" class="float-right">Thêm mới</a>
         </h2>
+        
         <table class="table table-striped table-sm">
           <thead>
             <tr>

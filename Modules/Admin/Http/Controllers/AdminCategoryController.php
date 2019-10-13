@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 class AdminCategoryController extends Controller
 {
@@ -27,13 +28,8 @@ class AdminCategoryController extends Controller
     }
     public function store(RequestCategory $requestCategory)
     {
-        $category                       =  new Category();
-        $category->c_name               =  $requestCategory->name;
-        $category->c_slug               =  str_slug($requestCategory->name);
-        $category->c_icon               =  str_slug($requestCategory->icon);
-        $category->c_title_seo          =  $requestCategory->c_title_seo ? $requestCategory->c_title_seo : $requestCategory->name;
-        $category->c_description_seo    =  $requestCategory->c_description_seo;
-        $category->save();
+        
+        $this->insertOrUpdate($requestCategory);
 
         return redirect()->back();
     }
@@ -52,5 +48,25 @@ class AdminCategoryController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function insertOrUpdate($requestCategory,$id=''){
+        $code =1;
+        try{
+            $category                       =  new Category();
+            if($id){
+                $category                   =  Category::find($id);
+            }
+            $category->c_name               =  $requestCategory->name;
+            $category->c_slug               =  str_slug($requestCategory->name);
+            $category->c_icon               =  str_slug($requestCategory->icon);
+            $category->c_title_seo          =  $requestCategory->c_title_seo ? $requestCategory->c_title_seo : $requestCategory->name;
+            $category->c_description_seo    =  $requestCategory->c_description_seo;
+            $category->save();
+        }catch(\Exception $exception){
+            $code = 0;
+            Log::error("[Error inserOrUpdate Categories]".$exception->getMessage());
+        }
+        return $code;
     }
 }
