@@ -108,3 +108,8 @@ body {
 .error-text{
   color: red;
 }
+.float-right{
+  border: 1px solid black;
+  border-radius: 10px;
+  text-decoration: none;
+}

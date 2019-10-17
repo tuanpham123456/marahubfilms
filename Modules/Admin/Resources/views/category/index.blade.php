@@ -13,7 +13,7 @@
 </nav>
 </div>
         <h2>Quản lý danh sách phim
-             <a href="{{ route('admin.get.create.category')}}" class="float-right">Thêm mới</a>
+             <a  href="{{ route('admin.get.create.category')}}" class="float-right">Thêm mới</a>
         </h2>
         
         <table class="table table-striped table-sm">
@@ -33,10 +33,12 @@
                     <td>{{ $category->id}}</td>
                     <td>{{ $category->c_name}}</td>
                     <td>{{ $category->c_title_seo}}</td>
-                    <td>{{ $category->c_active}}</td>
                     <td>
-                        <a href="{{ route('admin.get.edit.category',$category->id)}}">Edit</a>
-                        <a href="">Delete</a>
+                        <a href="">{{$category->getStatus($category->c_active)['name']}}</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.get.edit.category', $category->id)}}">Edit</a>
+                        <a href="{{route('admin.get.action.category', ['delete',$category->id])}}">Delete</a>
 
                     </td>
                   </tr>  

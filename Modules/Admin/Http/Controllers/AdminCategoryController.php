@@ -69,4 +69,23 @@ class AdminCategoryController extends Controller
         }
         return $code;
     }
+
+    public function action(Request $request,$action,$id ){
+
+        if($action){
+            $category = Category::find($id);
+            switch ($action)
+            {
+                case 'delete':
+                $category->delete();
+                break;
+            }
+        }
+        return redirect()->back();
+ 
+    }
+
+
+
+
 }
