@@ -16,5 +16,8 @@ class AdminProductController extends Controller
         return view('admin::product.create');
 
     }
+    public function store(RequestProduct $requestProduct){
+
+    }
 
 }
