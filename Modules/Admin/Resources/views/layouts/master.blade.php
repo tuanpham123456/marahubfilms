@@ -11,7 +11,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('theme_admin/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{asset('theme_admin/css/bootstrap.min.css')}}" rel="stylesheet"  crossorigin="anonymous">
 
 
     <style>
@@ -54,7 +54,7 @@
                             <a class="nav-link active" href="{{route('admin.home')}}">
                                 <span data-feather="home"></span>
                                 Trang tổng quan <span class="sr-only">(current)</span>
-                               
+
 
                             </a>
                         </li>
@@ -79,7 +79,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="bar-chart-2"></span>
-                                Thành viên 
+                                Thành viên
                             </a>
                         </li>
                         <li class="nav-item">
@@ -131,11 +131,11 @@
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script>
         window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <script src="{{asset('theme_admin/js/bootstrap.bundle.min.js')}}" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="{{asset('theme_admin/js/bootstrap.bundle.min.js')}}"  crossorigin="anonymous"></script>
     <script src="{{asset('theme_admin/js/feather.min.js')}}"></script>
     <script src="{{asset('theme_admin/js/Chart.min.js')}}"></script>
     <script src="{{asset('theme_admin/js/dashboard.js')}}"></script>
