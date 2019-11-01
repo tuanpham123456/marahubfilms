@@ -15,13 +15,13 @@
         <h2>Quản lý danh sách phim
              <a  href="{{ route('admin.get.create.category')}}" class="float-right">Thêm mới</a>
         </h2>
-        
+
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>#</th>
               <th>Tên Danh Mục</th>
-              <th>Title</th>
+              <th>Tiêu Đề</th>
               <th>Trạng Thái</th>
               <th>Thao Tác</th>
             </tr>
@@ -41,10 +41,10 @@
                         <a href="{{route('admin.get.action.category', ['delete',$category->id])}}">Delete</a>
 
                     </td>
-                  </tr>  
-                  @endforeach         
+                  </tr>
+                  @endforeach
               @endif
-  
+
           </tbody>
         </table>
       </div>

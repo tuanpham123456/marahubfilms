@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
+    <script src="https://kit.fontawesome.com/3c487c4ae5.js" crossorigin="anonymous"></script>
+
     <title>Admin</title>
 
 
@@ -50,21 +52,21 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
+                        <li class="nav-item" class="{{\Request::route()->getName == 'admin.home' ? 'active' : '' }}">
                             <a class="nav-link active" href="{{route('admin.home')}}">
                                 <span data-feather="home"></span>
-                                Trang tổng quan <span class="sr-only">(current)</span>
+                                Trang chủ <span class="sr-only">(current)</span>
 
 
                             </a>
                         </li>
-                        <li class="nav-item">
+                      <li class="nav-item" class="{{\Request::route()->getName == 'admin.get.list.category' ? 'active' : '' }}">
                             <a class="nav-link" href="{{  route('admin.get.list.category') }}">
                                 <span data-feather="file"></span>
                                 Danh mục
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" class="{{\Request::route()->getName == 'admin.get.list.product' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.get.list.product')}}">
                                 <span data-feather="shopping-cart"></span>
                                 Phim

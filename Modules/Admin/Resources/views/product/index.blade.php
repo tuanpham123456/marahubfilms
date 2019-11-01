@@ -13,22 +13,46 @@
 </nav>
 </div>
         <h2>Quản lý danh sách phim
-             <a  href="{{ route('admin.get.create.product')}}" class="float-right">Thêm mới</a>
+             <a  href="{{ route('admin.get.create.product')}}" class="float-right"><i class="fas fa-plus-circle"></i></a>
         </h2>
-        
+
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>#</th>
-              <th>Tên Danh Mục</th>
-              <th>Title</th>
+              <th>Tên Phim</th>
+              <th>Tiêu Đề</th>
+              <th>Tên Danh Mục </th>
               <th>Trạng Thái</th>
+              <th>Nổi Bật</th>
               <th>Thao Tác</th>
             </tr>
           </thead>
           <tbody>
-             
-  
+            @if(isset($products))
+            @foreach($products as $product)
+            <tr>
+              <td>{{ $product->id}}</td>
+              <td>{{ $product->pro_name}}</td>
+              <td>{{ $product->pro_category_id}}</td>
+              <td>{{ isset($product->category->c_name) ? $product->category->c_name : '[N\A]'}}</td>
+              <td>
+                  <a href="" class="label {{$product->getStatus($product->pro_active)['class']}}">{{$product->getStatus($product->pro_active)['name']}}</a>
+              </td>
+              <td>
+                <a href="" class="label {{$product->getHot($product->pro_hot)['class']}}">{{$product->getHot($product->pro_hot)['name']}}</a>
+
+              </td>
+
+              <td>
+                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.product', $product->id)}}"><i class="fas fa-pen" style="font-size:11px"></i>  Update</a>
+                  <a style="padding:5px 10px; boder:1px solid #6610f2"  href="{{route('admin.get.action.product', ['delete',$product->id])}}"><i class="fas fa-trash-alt" style="font-size:11px"></i>  Delete</a>
+
+              </td>
+            </tr>
+            @endforeach
+        @endif
+
           </tbody>
         </table>
       </div>
