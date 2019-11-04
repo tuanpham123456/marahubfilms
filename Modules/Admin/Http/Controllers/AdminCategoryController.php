@@ -28,7 +28,7 @@ class AdminCategoryController extends Controller
     }
     public function store(RequestCategory $requestCategory)
     {
-        
+
         $this->insertOrUpdate($requestCategory);
 
         return redirect()->back();
@@ -70,7 +70,7 @@ class AdminCategoryController extends Controller
         return $code;
     }
 
-    public function action(Request $request,$action,$id ){
+    public function action($action,$id ){
 
         if($action){
             $category = Category::find($id);
@@ -82,7 +82,7 @@ class AdminCategoryController extends Controller
             }
         }
         return redirect()->back();
- 
+
     }
 
 

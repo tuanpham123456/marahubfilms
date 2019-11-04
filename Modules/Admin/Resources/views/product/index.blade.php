@@ -16,6 +16,31 @@
              <a  href="{{ route('admin.get.create.product')}}" class="float-right"><i class="fas fa-plus-circle"></i></a>
         </h2>
 
+        <div class="row">
+          <div class="col-sm-12">
+                <form class="form-inline" action="" style="margin-bottom:20px;">
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tìm Tên Phim " name="name" style="width:700px" value="{{ \Request::get('name')}}">
+                    </div>
+                    <div class="form-group">
+                          <select name="cate" id="" class="form-control" style="margin-left:15px">
+                              <option value="">Danh Mục</option>
+                              @if(isset($categories))
+                                  @foreach($categories as $category)
+                                      <option value="$category->id" {{\Request::get('cate') == $category->id ? "selected='selected '" : ""}}>
+                                        {{$category->c_name}}
+                                      </option>
+                                  @endforeach
+
+                              @endif
+                          </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+          </div>
+        </div>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -37,10 +62,10 @@
               <td>{{ $product->pro_category_id}}</td>
               <td>{{ isset($product->category->c_name) ? $product->category->c_name : '[N\A]'}}</td>
               <td>
-                  <a href="" class="label {{$product->getStatus($product->pro_active)['class']}}">{{$product->getStatus($product->pro_active)['name']}}</a>
+              <a href="{{route('admin.get.action.product',['active',$product->id])}}" class="label {{$product->getStatus($product->pro_active)['class']}}">{{$product->getStatus($product->pro_active)['name']}}</a>
               </td>
               <td>
-                <a href="" class="label {{$product->getHot($product->pro_hot)['class']}}">{{$product->getHot($product->pro_hot)['name']}}</a>
+              <a href="{{route('admin.get.action.product',['hot',$product->id])}}" class="label {{$product->getHot($product->pro_hot)['class']}}">{{$product->getHot($product->pro_hot)['name']}}</a>
 
               </td>
 
