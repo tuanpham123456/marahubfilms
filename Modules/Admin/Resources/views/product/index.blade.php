@@ -62,15 +62,23 @@
               <td>{{ $product->pro_category_id}}</td>
               <td>{{ isset($product->category->c_name) ? $product->category->c_name : '[N\A]'}}</td>
               <td>
-              <a href="{{route('admin.get.action.product',['active',$product->id])}}" class="label {{$product->getStatus($product->pro_active)['class']}}">{{$product->getStatus($product->pro_active)['name']}}</a>
+
+              <a href="{{route('admin.get.action.product',['active',$product->id])}}" class="label {{$product->getStatus($product->pro_active)['class']}}">
+                {{$product->getStatus($product->pro_active)['name']}}
+              </a>
               </td>
               <td>
-              <a href="{{route('admin.get.action.product',['hot',$product->id])}}" class="label {{$product->getHot($product->pro_hot)['class']}}">{{$product->getHot($product->pro_hot)['name']}}</a>
+
+              <a href="{{route('admin.get.action.product',['hot',$product->id])}}" class="label {{$product->getHot($product->pro_hot)['class']}}">
+                {{$product->getHot($product->pro_hot)['name']}}
+              </a>
 
               </td>
 
               <td>
-                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.product', $product->id)}}"><i class="fas fa-pen" style="font-size:11px"></i>  Update</a>
+                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.product', $product->id)}}">
+                    <i class="fas fa-pen" style="font-size:11px"></i>  Update
+                  </a>
                   <a style="padding:5px 10px; boder:1px solid #6610f2"  href="{{route('admin.get.action.product', ['delete',$product->id])}}"><i class="fas fa-trash-alt" style="font-size:11px"></i>  Delete</a>
 
               </td>

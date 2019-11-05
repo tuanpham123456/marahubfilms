@@ -14,11 +14,11 @@ class Category extends Model
     protected  $status = [
         1 =>[
             'name' => 'Public',
-            'class' => ''
+            'class' => 'label-success'
         ],
         0 =>[
             'name'=> 'Private',
-            'class' => ''
+            'class' => 'label-default'
         ]
     ];
     public function getStatus(){

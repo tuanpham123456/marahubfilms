@@ -38,18 +38,6 @@
               </div>
               @endif
           </div>
-
-            <div class="form-group">
-                <label for="name">Description</label>
-                <input type="text" class="form-control" id="email" placeholder="Meta description" value="{{ old('pro_description_seo',isset($category->pro_description_seo) ? $category->pro_description_seo : '')}}" name="pro_description_seo">
-                @if($errors->has('pro_description_seo'))
-                <div class="error-text">
-                    {{$errors->first('pro_description_seo')}}
-                </div>
-                @endif
-            </div>
-
-
         </div>
 
         <div class="col-md-4">
@@ -88,7 +76,4 @@
         </div>
     </div>
     <button type="submit" class="btn btn-success">Lưu thông tin</button>
-
-
-
 </form>

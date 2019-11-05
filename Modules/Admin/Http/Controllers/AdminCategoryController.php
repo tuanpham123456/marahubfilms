@@ -79,6 +79,7 @@ class AdminCategoryController extends Controller
                 case 'delete':
                 $category->delete();
                 break;
+
             }
         }
         return redirect()->back();

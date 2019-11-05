@@ -34,7 +34,7 @@
                     <td>{{ $category->c_name}}</td>
                     <td>{{ $category->c_title_seo}}</td>
                     <td>
-                        <a href="">{{$category->getStatus($category->c_active)['name']}}</a>
+                    <a href="" class="label {{$category->getStatus($category->c_active)['class']}}">{{$category->getStatus($category->c_active)['name']}}</a>
                     </td>
                     <td>
                         <a href="{{ route('admin.get.edit.category', $category->id)}}">Edit</a>

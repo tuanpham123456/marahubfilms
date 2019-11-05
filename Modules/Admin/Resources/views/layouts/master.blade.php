@@ -13,8 +13,8 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('theme_admin/css/bootstrap.min.css')}}" rel="stylesheet"  crossorigin="anonymous">
-
+    <link href="{{asset('theme_admin/css/bootstrap.min.css')}}" rel="stylesheet"   crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
 
     <style>
         .bd-placeholder-img {
