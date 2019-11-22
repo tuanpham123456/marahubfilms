@@ -15,7 +15,6 @@ class AlterColumnProContentAndProTitleSeoInTableProducts extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->string('title_seo')->nullable();
-            $table->longText('pro_content')->nullable();
         });
     }
 
@@ -28,7 +27,6 @@ class AlterColumnProContentAndProTitleSeoInTableProducts extends Migration
     {
       Schema::table('products', function (Blueprint $table) {
           $table->dropColumn('title_seo');
-          $table->dropColumn('pro_content');
     });
     }
 }
