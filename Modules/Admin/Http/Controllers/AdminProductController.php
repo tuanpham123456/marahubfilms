@@ -32,7 +32,7 @@ class AdminProductController extends Controller
 
 
     public function create(){
-      $categories = $this->getCategories();
+      $product = $this->getCategories();
         return view('admin::product.create',compact('categories'));
 
     }
@@ -45,6 +45,26 @@ class AdminProductController extends Controller
     public function getCategories(){
        return Category::all();
     }
+    public function edit($id){
+
+      $product = Product::find($id);
+        return view('admin::product.update',compact('product'));
+    }
+
+
+
+    public function update(RequestProduct $requestProduct,$id){
+      $product                       =  Product::find($id);
+      $product->c_name               =  $requestProduct->name;
+      $product->c_slug               =  str_slug($requestProduct->name);
+      $product->c_icon               =  str_slug($requestProduct->icon);
+      $product->c_title_seo          =  $requestProduct->c_title_seo ? $requestProduct->c_title_seo : $requestProduct->name;
+      $product->c_description_seo    =  $requestProduct->c_description_seo;
+      $product->save();
+
+      return redirect()->back();
+
+  }
     public function InsertOrUpdate($requestProduct,$id=''){
         $product = new Product();
 
@@ -66,8 +86,8 @@ class AdminProductController extends Controller
           switch ($action)
           {
               case 'delete':
-                $product->delete();
-                break;
+              $product->delete();
+              break;
 
               case 'active':
                 $product->pro_active = $product->pro_active ? 0 : 1;

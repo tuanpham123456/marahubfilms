@@ -7,13 +7,13 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Trang chủ</a></li>
-    <li class="breadcrumb-item"><a href="{{route('admin.get.list.product')}}" title="Danh mục">Phim</a></li>
+    <li class="breadcrumb-item"><a href="{{route('admin.get.list.article')}}" title="Danh mục">Bài viết</a></li>
     <li class="breadcrumb-item active" aria-current="page">Danh sách</li>
   </ol>
 </nav>
 </div>
         <h2>Quản lý danh sách phim
-             <a  href="{{ route('admin.get.create.product')}}" class="float-right"><i class="fas fa-plus-circle"></i></a>
+             <a  href="{{ route('admin.get.create.article')}}" class="float-right"><i class="fas fa-plus-circle"></i></a>
         </h2>
 
         <div class="row">
@@ -22,7 +22,7 @@
                     <div class="form-group">
                     <input type="text" class="form-control" placeholder="Tìm Tên Phim " name="name" style="width:700px" value="{{ \Request::get('name')}}">
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                           <select name="cate" id="" class="form-control" style="margin-left:15px">
                               <option value="">Danh Mục</option>
                               @if(isset($categories))
@@ -34,7 +34,7 @@
 
                               @endif
                           </select>
-                    </div>
+                    </div> --}}
                     <button type="submit" class="btn btn-default">
                         <i class="fa fa-search"></i>
                     </button>
@@ -54,33 +54,33 @@
             </tr>
           </thead>
           <tbody>
-            @if(isset($products))
-            @foreach($products as $product)
+            @if(isset($articles))
+            @foreach($articles as $article)
             <tr>
-              <td>{{ $product->id}}</td>
-              <td>{{ $product->pro_name}}</td>
-              <td>{{ $product->pro_category_id}}</td>
+              <td>{{ $article->id}}</td>
+              <td>{{ $article->pro_name}}</td>
+              <td>{{ $article->pro_category_id}}</td>
 
-              <td>{{ isset($product->category->c_name) ? $product->category->c_name : '[N\A]'}}</td>
+              <td>{{ isset($article->category->c_name) ? $article->category->c_name : '[N\A]'}}</td>
               <td>
 
-              <a href="{{route('admin.get.action.product',['active',$product->id])}}" class="label {{$product->getStatus($product->pro_active)['class']}}">
-                {{$product->getStatus($product->pro_active)['name']}}
+              <a href="{{route('admin.get.action.article',['active',$article->id])}}" class="label {{$article->getStatus($article->pro_active)['class']}}">
+                {{$article->getStatus($article->pro_active)['name']}}
               </a>
               </td>
               <td>
 
-              <a href="{{route('admin.get.action.product',['hot',$product->id])}}" class="label {{$product->getHot($product->pro_hot)['class']}}">
-                {{$product->getHot($product->pro_hot)['name']}}
+              <a href="{{route('admin.get.action.article',['hot',$article->id])}}" class="label {{$article->getHot($article->pro_hot)['class']}}">
+                {{$article->getHot($article->pro_hot)['name']}}
               </a>
 
               </td>
 
               <td>
-                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.product', $product->id)}}">
+                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.article', $article->id)}}">
                     <i class="fas fa-pen" style="font-size:11px"></i>  Update
                   </a>
-                  <a style="padding:5px 10px; boder:1px solid #6610f2"  href="{{route('admin.get.action.product', ['delete',$product->id])}}"><i class="fas fa-trash-alt" style="font-size:11px"></i>  Delete</a>
+                  <a style="padding:5px 10px; boder:1px solid #6610f2"  href="{{route('admin.get.action.article', ['delete',$article->id])}}"><i class="fas fa-trash-alt" style="font-size:11px"></i>  Delete</a>
 
               </td>
             </tr>
