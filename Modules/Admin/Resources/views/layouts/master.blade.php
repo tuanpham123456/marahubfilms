@@ -75,7 +75,7 @@
                         <li class="nav-item" class="{{\Request::route()->getName == 'admin.get.list.article' ? 'active' : '' }}">
                         <a class="nav-link" href="{{route('admin.get.list.article')}}">
                                 <span data-feather="users"></span>
-                                Tin Tức
+                                Bài viết
                             </a>
                         </li>
                         <li class="nav-item">

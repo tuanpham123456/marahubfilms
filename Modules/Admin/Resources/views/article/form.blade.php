@@ -2,7 +2,7 @@
     @csrf
     <div class="form-group">
         <label for="name">Tên bài viết </label>
-        <input type="text" class="form-control" id="email" placeholder="Tên danh mục" value="{{ old('a_name',isset($article->c_a_name) ? $article->c_a_name : '' )}}" name="a_name">
+        <input type="text" class="form-control" id="email" placeholder="Tên bài viết" value="{{ old('a_name',isset($article->a_name) ? $article->a_name : '' )}}"   name="a_name">
         @if($errors->has('a_name'))
         <div class="error-text">
             {{$errors->first('a_name')}}
@@ -21,10 +21,10 @@
     </div>
     <div class="form-group">
       <label for="name">Nội dung</label>
-      <input type="text" class="form-control" id="email" placeholder="Nội dung" value="{{ old('a_content',isset($article->a_content) ? $article->a_content : '')}}" name="a_content">
-      @if($errors->has('a_content'))
+      <input type="text" class="form-control" id="email" placeholder="Nội dung" value="{{ old('content',isset($article->content) ? $article->content : '')}}" name="content">
+      @if($errors->has('content'))
       <div class="error-text">
-          {{$errors->first('a_content')}}
+          {{$errors->first('content')}}
       </div>
       @endif
   </div>

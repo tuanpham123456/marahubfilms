@@ -26,7 +26,7 @@ class RequestArticle extends FormRequest
         return [
             'a_name' => 'required|unique:articles,a_name,' .$this->id,
             'a_description' => 'required',
-            'a_content' =>'required'
+            'content' =>'required'
 
         ];
     }
@@ -36,9 +36,8 @@ class RequestArticle extends FormRequest
             'a_name.required' => 'Trường này không được để trống',
             'a_name.unique' => 'Tên này đã tồn tại',
             'a_description.required' => 'Trường này không được để trống',
-            'a_content.required'=>'Trường này không được để trống',
+            'content.required'=>'Trường này không được để trống',
 
         ];
     }
 }
-  

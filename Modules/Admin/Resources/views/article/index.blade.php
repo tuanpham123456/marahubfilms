@@ -12,7 +12,7 @@
   </ol>
 </nav>
 </div>
-        <h2>Quản lý danh sách phim
+        <h2>Quản lý bài viết
              <a  href="{{ route('admin.get.create.article')}}" class="float-right"><i class="fas fa-plus-circle"></i></a>
         </h2>
 
@@ -20,7 +20,7 @@
           <div class="col-sm-12">
                 <form class="form-inline" action="" style="margin-bottom:20px;">
                     <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Tìm Tên Phim " name="name" style="width:700px" value="{{ \Request::get('name')}}">
+                    <input type="text" class="form-control" placeholder="Tìm Tên Bài Viết " name="name" style="width:700px" value="{{ \Request::get('name')}}">
                     </div>
                     {{-- <div class="form-group">
                           <select name="cate" id="" class="form-control" style="margin-left:15px">
@@ -45,11 +45,10 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Tên Phim</th>
-              <th>Tiêu Đề</th>
-              <th>Tên Danh Mục </th>
+              <th>Tên Bài Viết</th>
+              <th>Mô Tả</th>
               <th>Trạng Thái</th>
-              <th>Nổi Bật</th>
+              <th>Ngày Tạo</th>
               <th>Thao Tác</th>
             </tr>
           </thead>
@@ -58,31 +57,21 @@
             @foreach($articles as $article)
             <tr>
               <td>{{ $article->id}}</td>
-              <td>{{ $article->pro_name}}</td>
-              <td>{{ $article->pro_category_id}}</td>
-
-              <td>{{ isset($article->category->c_name) ? $article->category->c_name : '[N\A]'}}</td>
+              <td>{{ $article->a_name}}</td>
+              <td>{{ $article->a_description}}</td>
               <td>
+                <a href="{{route('admin.get.action.article',['active',$article->id])}}" class="label {{$article->getStatus($article->a_active)['class']}}">
+                  {{$article->getStatus($article->a_active)['name']}}
+                </a>
 
-              <a href="{{route('admin.get.action.article',['active',$article->id])}}" class="label {{$article->getStatus($article->pro_active)['class']}}">
-                {{$article->getStatus($article->pro_active)['name']}}
-              </a>
               </td>
+              <td>{{ $article->updated_at}}</td>
               <td>
-
-              <a href="{{route('admin.get.action.article',['hot',$article->id])}}" class="label {{$article->getHot($article->pro_hot)['class']}}">
-                {{$article->getHot($article->pro_hot)['name']}}
-              </a>
+                <a class="btn_customer_action" href="{{ route('admin.get.edit.article',$article->id)}}"><i class="fas fa-pen ">Cập nhật</i></a>
+                <a class="btn_customer_action" href="{{ route('admin.get.action.article',['delete',$article->id])}}"><i class="fas fa-trash-alt ">Xóa</i></a>
 
               </td>
 
-              <td>
-                  <a style="padding:5px 10px; boder:1px solid #6610f2;font-size:12px;" href="{{ route('admin.get.edit.article', $article->id)}}">
-                    <i class="fas fa-pen" style="font-size:11px"></i>  Update
-                  </a>
-                  <a style="padding:5px 10px; boder:1px solid #6610f2"  href="{{route('admin.get.action.article', ['delete',$article->id])}}"><i class="fas fa-trash-alt" style="font-size:11px"></i>  Delete</a>
-
-              </td>
             </tr>
             @endforeach
         @endif
